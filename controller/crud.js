@@ -73,8 +73,6 @@ const updateData = async (req,res) => {
   }
 }
 
-
-
 module.exports = {
   saveData,
   getData,
