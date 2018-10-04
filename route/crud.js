@@ -21,14 +21,6 @@ router.get('/protected', jwtAuth, (req, res) => {
   });
 });
 
-// router.get('/users', (req, res) => {
-// 	res.status(200).send({message: "GET USERS"})
-// })
-
-// router.get('/auth', (req, res) => {
-// 	res.status(200).send({message: "GET AUTH"})
-// })
-
 router.get('/', (req,res) => {
   res.status(200).send({message:"hello world"})
 })

@@ -11,7 +11,8 @@ require('./middleware')(app)
 require('./database')
 
 //routing
-require('./route')(app)
+require('./route')(app);
+
 
 const { PORT } = require("./config");
 

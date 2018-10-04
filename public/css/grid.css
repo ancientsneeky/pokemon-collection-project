@@ -1,0 +1,122 @@
+* {
+	box-sizing: border-box;
+}
+
+.row {
+	max-width: 1000px;
+	padding: 0 20px;
+	margin: 0 auto;
+}
+
+.row::before, .row::after {
+	display: table;
+	content: '';
+}
+
+.row::after {
+	clear: both;
+}
+
+h1 {
+	font-size: 32px;
+	text-align: center;
+	padding: 0 10px;
+}
+
+.col-3, .col-4, .col-6, .col-12 {
+	float: left;
+	padding-left: 1.0466666%;
+	padding-right: 1.0466666%;
+	padding-top: 1.0466666%;
+	padding-bottom: 1.0466666%;
+}
+
+.col-3, .col-4, .col-6, .col-12 {
+	width: 100%;
+	text-align: center;
+}
+
+.js-card-result input[type="image"] {
+	display: inline-block;
+	text-align: center;
+	height: 342px;
+	width: 245px;
+	padding-bottom: 10px;
+}
+
+.ebayImg {
+	width: 115; 
+	height: 140;
+}
+
+.js-ebay-search-results .title,  .js-ebay-search-results .Shipping, .ebayImg {
+	margin: 10px 0;
+}
+
+.searchPlaceHolder p {
+    background: #222;
+    background: linear-gradient(#333, #222);
+    border: 1px solid #444;
+    border-radius: 5px 0 0 5px;
+    box-shadow: 0 2px 0 #000;
+    color: #888;
+    word-wrap: break-word;
+    display: block;
+    font-family: 'Cabin', helvetica, arial, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    padding: 0 0px;
+    text-shadow: 0 -1px 0 #000;
+    width: 100%;
+}
+
+.errorReturn {
+	text-align: center;
+    color: #FFF;
+    word-wrap: break-word;
+    font-family: 'Cabin', helvetica, arial, sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+    text-shadow: 0 -1px 0 #000;
+}
+
+/*start of non mobile defaults*/
+/*content scaleing breaks at 788px*/
+
+@media only screen and (min-width:  788px) {
+	.col-2 {
+		width: 50%;
+	}
+
+	.col-1 {
+		width: 100%;
+	}
+
+	.col-3 {
+		width: 33%;
+	}
+
+	.js-ebay-search-results .title, .js-ebay-search-results .Shipping, .ebayImg {
+	font-size: 12px;
+	margin: 10px 0;
+	}
+
+	.searchPlaceHolder p {
+    background: #222;
+    background: linear-gradient(#333, #222);
+    border: 1px solid #444;
+    border-radius: 5px 0 0 5px;
+    box-shadow: 0 2px 0 #000;
+    color: #888;
+    height: 40px;
+    word-wrap: break-word;
+    display: block;
+    font-family: 'Cabin', helvetica, arial, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    padding: 0 0px;
+    text-shadow: 0 -1px 0 #000;
+    width: 100%;
+	}
+
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Pokemon Card API testing</title>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+        <script
+          src="https://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="/css/grid.css">
+        <link rel="stylesheet" type="text/css" href="/css/search-bar.css">
+        <link rel="stylesheet" type="text/css" href="/css/main.css">
+    </head>
+    <body>
+      <header role="banner">
+        <div class="nav-bar">
+          <nav role="Navigation">
+            <a href="index.html" role="link" class="homeIcon">
+                <img src="img/pokecenter.png" alt="Home link" class="homeIconImg">
+            </a>
+            <ul class="rightFloat">
+              <li>
+                <a href="/login.html">Login</a>
+              </li>
+              <li><span class="score"></span></li>
+            </ul>
+
+          </nav>
+        </div>
+      </header>
+      <main role="main">
+        <h1>Search for Pokemon TCG Cards by name</h1>
+        <section class="searchPlaceHolder">
+            <form role="search"action="#" class="js-search-form">
+              <label for="query"></label>
+              <input type="text" class="js-query" value="Charizard" id="searchBar">
+              <button type="submit">Search</button>
+              <button type="submit" id="test">test</button>
+            </form>
+          </section>
+
+          <h2 class="heading hidden">Results</h2>
+          <div class="js-search-page-button top hidden"></div>
+          <div class="js-search-results hidden row" aria-live="polite"></div>
+          <div class="js-ebay-search-results row"aria-live="assertive"></div>
+          <div class="js-search-page-button bottom hidden"></div>
+      </main>
+      <script src="search.js"></script>
+    </body>
+</html>

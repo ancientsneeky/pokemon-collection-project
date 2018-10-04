@@ -2,8 +2,7 @@
 const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 
-mongoose.Promise = global.Promise;
-
+// mongoose.Promise = global.Promise;
 
 
 const cardSchema = mongoose.Schema({
@@ -47,7 +46,10 @@ UserSchema.methods.serialize = function() {
     id: this.id,
     username: this.username || '',
     firstName: this.firstName || '',
-    lastName: this.lastName || ''
+    lastName: this.lastName || '',
+    cardCollection: this.cardCollection || '',
+    settings: this.settings,
+    bio: this.bio
   };
 };
 
