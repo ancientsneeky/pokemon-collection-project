@@ -11,6 +11,7 @@ require('./middleware')(app)
 require('./database')
 
 //routing
+app.use(express.static('./public'));
 require('./route')(app);
 
 

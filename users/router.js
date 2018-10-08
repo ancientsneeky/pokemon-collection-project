@@ -1,21 +1,21 @@
-'use strict';
-const express = require('express');
-const bodyParser = require('body-parser');
+// 'use strict';
+// const express = require('express');
+// const bodyParser = require('body-parser');
 
-const {User} = require('./models');
-const {deleteUserData, createNewUserData, getUserData, updateUserData} = require('../controller/user')
+// const {User} = require('../model/userModel');
+// const {deleteUserData, createNewUserData, getUserData, updateUserData} = require('../controller/user')
 
-const router = express.Router();
+// const router = express.Router();
 
-const jsonParser = bodyParser.json();
+// const jsonParser = bodyParser.json();
 
-// Post to register a new user
-router.post('/', jsonParser, createNewUserData);
+// // Post to register a new user
+// router.post('/', jsonParser, createNewUserData);
 
-router.get('/', getUserData);
+// router.get('/', getUserData);
 
-router.delete('/:id', deleteUserData);
+// router.delete('/:id', deleteUserData);
 
-router.patch('/:id', updateUserData);
+// router.patch('/:id', updateUserData);
 
-module.exports = {router};
+// module.exports = {router};

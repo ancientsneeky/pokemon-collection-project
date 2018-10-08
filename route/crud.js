@@ -5,14 +5,16 @@ const passport = require('passport');
 //load controller functions for HTTP Methods
 const {saveData,getData,deleteData,updateData} = require('../controller/crud');
 
-const { router: usersRouter } = require('../users');
+const { router: usersRouter } = require('./user');
 const { router: authRouter, localStrategy, jwtStrategy } = require('../auth');
+const { router: cardRouter} = require('./card');
 
 passport.use(localStrategy);
 passport.use(jwtStrategy);
 
 router.use('/users', usersRouter);
 router.use('/auth', authRouter);
+router.use('/cards', cardRouter);
 
 const jwtAuth = passport.authenticate('jwt', { session: false });
 router.get('/protected', jwtAuth, (req, res) => {

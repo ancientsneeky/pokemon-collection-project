@@ -1,68 +1,71 @@
-'use strict';
-const bcrypt = require('bcryptjs');
-const mongoose = require('mongoose');
+// 'use strict';
+// const bcrypt = require('bcryptjs');
+// const mongoose = require('mongoose');
 
-// mongoose.Promise = global.Promise;
-
-
-const cardSchema = mongoose.Schema({
-  name: {type: String, required: true},
-  setID: {type: String},
-  condidtion: {type: String},
-  image: {type: String},
-  nationalPokeNum: {type: Number},
-  rarity: {type: String},
-  tradeable: {type: Boolean, default: false}
-});
-
-const setSchema = mongoose.Schema({
-  name: {type: String, required: true},
-  collected: [cardSchema]
-});
+// // mongoose.Promise = global.Promise;
 
 
-const UserSchema = mongoose.Schema({
-  username: {
-    type: String,
-    required: true,
-    unique: true
-  },
-  password: {
-    type: String,
-    required: true
-  },
-  firstName: {type: String, default: ''},
-  lastName: {type: String, default: ''},
-  dateJoined: {type: Date, default: Date.now()},
-  avatar: {type: String, default: ''},
-  bio: {type: String, default: ''},
-  settings: {displayPerpage: {type: Number, default: 9}},
-  cardCollection: [setSchema]
-});
+// const cardSchema = mongoose.Schema({
+//   name: {type: String, required: true},
+//   setID: {type: String, unique: true},
+//   image: {type: String},
+//   nationalPokeNum: {type: Number},
+//   rarity: {type: String},
+//   userDefined: {
+//     condidtion: {type: String},
+//     tradeable: {type: Boolean, default: false}
+//   }
+
+// });
+
+// const setSchema = mongoose.Schema({
+//   name: {type: String, required: true},
+//   collected: [cardSchema]
+// });
 
 
-UserSchema.methods.serialize = function() {
-  return {
-    id: this.id,
-    username: this.username || '',
-    firstName: this.firstName || '',
-    lastName: this.lastName || '',
-    cardCollection: this.cardCollection || '',
-    settings: this.settings,
-    bio: this.bio
-  };
-};
+// const UserSchema = mongoose.Schema({
+//   username: {
+//     type: String,
+//     required: true,
+//     unique: true
+//   },
+//   password: {
+//     type: String,
+//     required: true
+//   },
+//   firstName: {type: String, default: ''},
+//   lastName: {type: String, default: ''},
+//   dateJoined: {type: Date, default: Date.now()},
+//   avatar: {type: String, default: ''},
+//   bio: {type: String, default: ''},
+//   settings: {displayPerpage: {type: Number, default: 9}},
+//   cardCollection: [setSchema]
+// });
 
-UserSchema.methods.validatePassword = function(password) {
-  return bcrypt.compare(password, this.password);
-};
 
-UserSchema.statics.hashPassword = function(password) {
-  return bcrypt.hash(password, 10);
-};
+// UserSchema.methods.serialize = function() {
+//   return {
+//     id: this.id,
+//     username: this.username || '',
+//     firstName: this.firstName || '',
+//     lastName: this.lastName || '',
+//     cardCollection: this.cardCollection || '',
+//     settings: this.settings,
+//     bio: this.bio
+//   };
+// };
 
-const User = mongoose.model('User', UserSchema);
-const Card = mongoose.model("Card", cardSchema);
-const PokeSet = mongoose.model("pokeSet", setSchema)
+// UserSchema.methods.validatePassword = function(password) {
+//   return bcrypt.compare(password, this.password);
+// };
 
-module.exports = {User, Card, PokeSet};
+// UserSchema.statics.hashPassword = function(password) {
+//   return bcrypt.hash(password, 10);
+// };
+
+// const User = mongoose.model('User', UserSchema);
+// const Card = mongoose.model("Card", cardSchema);
+// const PokeSet = mongoose.model("pokeSet", setSchema)
+
+// module.exports = {User, Card, PokeSet};

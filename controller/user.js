@@ -1,6 +1,6 @@
 "use strict"
 
-const {User} = require('../users/models');
+const {User} = require('../model/userModel');
 
 const updateUserData = async (req, res) => {
 	if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
@@ -23,7 +23,7 @@ const updateUserData = async (req, res) => {
 		if(!id) return res.status(404).send({message:"id not found"})
 		if(!toUpdate) return res.status(404).send({message:"text not found"})
 		const updatedData = await User.findByIdAndUpdate(id, toUpdate, {new: true});
-		res.status(200).send(updatedData);
+		res.status(200).send(updatedData.serialize());
 	}
 	catch(err){
 	  res.status(500).send({message:"unable to update data"})
