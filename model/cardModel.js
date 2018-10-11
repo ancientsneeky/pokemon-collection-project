@@ -7,7 +7,7 @@ const {User} = require('./userModel');
 
 const cardSchema = mongoose.Schema({
   name: {type: String, required: true},
-  setID: {type: String},
+  setID: {type: String, unique: true, required: true},
   image: {type: String},
   nationalPokeNum: {type: Number},
   rarity: {type: String},
@@ -15,6 +15,7 @@ const cardSchema = mongoose.Schema({
 
 const userDefined = mongoose.Schema({
   card: {type: mongoose.Schema.Types.ObjectId, ref: "Card"},
+  // card: [cardSchema],
   condition: {type: String, default: "Near Mint"}, 
   tradeable: {type: Boolean, default: false}
 });
@@ -24,17 +25,36 @@ const setSchema = mongoose.Schema({
   collected: [userDefined]
 });
 
-// pre hook author access for serialize
+// pre hook card access for serialize
 userDefined.pre('find', function(next) {
   this.populate('card');
   next();
 });
 
-// pre hook author access for serialize
+// pre hook card access for serialize
 userDefined.pre('findOne', function(next) {
   this.populate('card');
   next();
 });
+
+cardSchema.methods.serialize = function() {
+  return {
+    id: this.id,
+    name: this.name || '',
+    setID: this.setID || '',
+    image: this.image || '',
+    nationalPokeNum: this.nationalPokeNum || '',
+    rarity: this.rarity
+  };
+};
+
+setSchema.methods.serialize = function() {
+  return {
+    id: this.id,
+    name: this.name || '',
+    collected: this.collected || ''
+  };
+};
 
 
 const Card = mongoose.model("Card", cardSchema);

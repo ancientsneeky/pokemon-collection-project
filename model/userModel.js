@@ -46,6 +46,18 @@ UserSchema.statics.hashPassword = function(password) {
   return bcrypt.hash(password, 10);
 };
 
+// pre hook card access for serialize
+UserSchema.pre('find', function(next) {
+  this.populate('cardCollection.collected.card');
+  next();
+});
+
+// pre hook card access for serialize
+UserSchema.pre('findOne', function(next) {
+  this.populate('cardCollection.collected.card');
+  next();
+});
+
 const User = mongoose.model('User', UserSchema);
 
 module.exports = {User};

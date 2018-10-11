@@ -1,0 +1,21 @@
+{
+    "id": "5bad4cf56e7f11604c1ea465",
+    "cardCollection": [
+        {
+            "name": "test",
+            "_id": "5bb6a1c9101b352ce870a4aa",
+            "collected":[
+                {
+                    "card":
+                    {
+                        "_id": "5bbe5163de22dc3eecf93583",
+                        "setID": "Example Set",
+                        "name": "test Card",
+                        "image": "url",
+                        "__v": 0
+                    }
+                }
+            ]
+        }
+    ]
+}

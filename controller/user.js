@@ -40,7 +40,7 @@ const getUserData = async (req, res) => {
 	  }
 	  //if id is null or undefined, GET all
 	  const data = await User.find({})
-	  res.status(200).send(data)
+	  res.status(200).json(data.map(user => user.serialize()))
 	}
 	catch(err){
 	  res.status(500).send({message:"was not able to fetch data from the database"})
@@ -171,6 +171,7 @@ const createNewUserData = async (req, res) => {
 		      return res.status(err.code).json(err);
 		    }
 		    res.status(500).json({code: 500, message: 'Internal server error'});
+		    console.error(err);
 		  });
 	}
 	catch(err){

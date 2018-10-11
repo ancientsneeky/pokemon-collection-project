@@ -9,11 +9,11 @@ const {MLAB_URL} = require('../config');
   try{
     //mongoose connects
     await mongoose.connect(MLAB_URL, {useNewUrlParser: true});
-    console.log('mongoose connected');
+    console.log('Mongoose Connected');
   }
   catch(err){
     //if mongoose fails
-    console.log("mongoose failed to connect");
+    console.log("Mongoose Failed to Connect");
     console.log(err);
   }
 })()

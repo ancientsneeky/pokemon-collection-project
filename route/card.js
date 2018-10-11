@@ -2,7 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const {Card} = require('../model/cardModel');
+// const {Card} = require('../model/cardModel');
 const {deleteCardData, createNewCardData, getCardData, updateCardData} = require('../controller/card')
 
 const router = express.Router();
