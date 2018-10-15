@@ -1,0 +1,4 @@
+.createUserForm > label {
+	display: block;
+	float: right;
+}

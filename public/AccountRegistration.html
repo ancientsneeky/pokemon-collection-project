@@ -7,8 +7,9 @@
 	<link rel="stylesheet" type="text/css" href="/css/grid.css">
 	<link rel="stylesheet" type="text/css" href="/css/search-bar.css">
 	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	<link rel="stylesheet" type="text/css" href="/css/newAccount.css">
 </head>
-<body>	
+<body>
 	<header role="banner">
 	  <div class="nav-bar">
 	    <nav role="Navigation">
@@ -26,38 +27,44 @@
 	</header>
 	<div class="paddedTopDiv">
 		<div>
-			<div>
-				<form class="loginForm" id="login">
+			<div class="formDiv">
+				<form class="createUserForm" id="createUser">
 					<span class="paddedTopBanner">
-						Sign In
+						Create New Account 
 					</span>
 
 					<div class="usernameForm">
+						<label for="usernameInput">Username:</label>
 						<input class="usernameInput" type="text" name="username" placeholder="Username">
 					</div>
 
 					<div class="passwordForm">
-						<input class="passwordInput" type="password" name="pass" placeholder="Password">
+						<label>Password:</label>
+						<input class="passwordInput" type="text" name="password" placeholder="Password">
 					</div>
 
+					<div class="emailForm">
+						<label>Email:</label>
+						<input class="emailInput" type="text" name="email" placeholder="email@example.com">
+					</div>
+
+					<div class="firstNameForm">
+						<label>First Name:</label>
+						<input class="firstNameInput" type="text" name="firstName" placeholder="John">
+					</div>
+
+					<div class="lastNameForm">
+						<label>Last Name:</label>
+						<input class="lastNameInput" type="text" name="lastName" placeholder="Doe">
+					</div>
 
 					<div class="submit">
-						<button class="submitBtn">Sign in</button>
-					</div>
-
-					<div class="forgotLink">
-						<span class="black">Forgot</span>
-						<span class="coloredLink">Username / Password?</span>
-					</div>
-
-					<div class="signUp">
-						<span class="coloredLink">Don’t have an account?</span>
-						<a href="/AccountRegistration.html" class="coloredLink">Sign up now</a>
+						<button class="submitBtn">Create Account</button>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
-<script type="text/javascript" src="/js/login.js"></script>
+<script type="text/javascript" src="/js/createUser.js"></script>
 </body>
 </html>

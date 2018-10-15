@@ -12,7 +12,7 @@ const updateUserData = async (req, res) => {
 		}
 	try{
 		const toUpdate = {};
-		const updateableFields = ["username","firstName", "lastName","bio","settings","cardCollection", "avatar"];
+		const updateableFields = ["email","username","firstName", "lastName","bio","settings","cardCollection", "avatar"];
 
 		updateableFields.forEach(field => {
 		if (field in req.body) {
@@ -49,7 +49,7 @@ const getUserData = async (req, res) => {
 
 const createNewUserData = async (req, res) => {
 	try{
-		const requiredFields = ['username', 'password'];
+		const requiredFields = ['username', 'password', 'email'];
 		const missingField = requiredFields.find(field => !(field in req.body));
 
 		if (missingField) {
@@ -62,7 +62,7 @@ const createNewUserData = async (req, res) => {
 		  });
 		}
 
-		const stringFields = ['username', 'password', 'firstName', 'lastName'];
+		const stringFields = ['username', 'password', 'firstName', 'lastName', 'email'];
 		const nonStringField = stringFields.find(
 		  field => field in req.body && typeof req.body[field] !== 'string'
 		);
@@ -83,7 +83,7 @@ const createNewUserData = async (req, res) => {
 		// trimming them and expecting the user to understand.
 		// We'll silently trim the other fields, because they aren't credentials used
 		// to log in, so it's less of a problem.
-		const explicityTrimmedFields = ['username', 'password'];
+		const explicityTrimmedFields = ['username', 'password', 'email'];
 		const nonTrimmedField = explicityTrimmedFields.find(
 		  field => req.body[field].trim() !== req.body[field]
 		);
@@ -132,7 +132,7 @@ const createNewUserData = async (req, res) => {
 		  });
 		}
 
-		let {username, password, firstName = '', lastName = ''} = req.body;
+		let {username, password, firstName = '', lastName = '', email = ''} = req.body;
 		// Username and password come in pre-trimmed, otherwise we throw an error
 		// before this
 		firstName = firstName.trim();
@@ -158,7 +158,8 @@ const createNewUserData = async (req, res) => {
 		      username,
 		      password: hash,
 		      firstName,
-		      lastName
+		      lastName,
+		      email
 		    });
 		  })
 		  .then(user => {

@@ -1,16 +1,16 @@
 function postLoginForm(loginInfo, callback) {
+  const {username, password} = loginInfo
   const settings = {
     contentType: "application/json",
     data: JSON.stringify({
-        username: loginInfo[0],
-        password: loginInfo[1]
+      username,
+      password
     }),
     dataType: 'JSON',
     success: callback,
     type: 'POST',
     url: '/api/auth/login'
 };
-console.log(settings);
   $.ajax(settings);
 }
 
@@ -23,16 +23,14 @@ function watchSubmit() {
 }
 
 function getSubmitValue() {
-  let submitArray = []
-
-  submitArray[0] = $('.usernameInput').val();
-  submitArray[1] = $('.passwordInput').val();
-  console.log(submitArray);
-  return submitArray
+  let submitObj = {
+    username: $('.usernameInput').val(),
+    password: $('.passwordInput').val()
+  }
+  return submitObj
 }
 
 function successCallback(data) {
-  console.log(data);
   localStorage.setItem("bearer", JSON.stringify(data));
 }
 
